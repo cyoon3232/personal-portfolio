@@ -73,6 +73,10 @@
 		});
 	}
 
+	function sectionTop(section) {
+		return section.getBoundingClientRect().top + window.scrollY;
+	}
+
 	function onScroll() {
 		updateHeroNav();
 		updateNavAlt();
@@ -82,7 +86,7 @@
 		}
 
 		var offset = navOffset();
-		var marker = window.scrollY + offset + window.innerHeight * 0.35;
+		var marker = window.scrollY + offset + window.innerHeight * 0.15;
 		var currentHash = null;
 
 		navLinks.forEach(function (link) {
@@ -92,7 +96,7 @@
 				return;
 			}
 
-			var top = section.offsetTop;
+			var top = sectionTop(section);
 			var bottom = top + section.offsetHeight;
 
 			if (marker >= top && marker < bottom) {
@@ -102,6 +106,10 @@
 
 		if (currentHash) {
 			setActiveNavLink(currentHash);
+		} else if (hero && window.scrollY < hero.offsetHeight * 0.45) {
+			navLinks.forEach(function (link) {
+				link.classList.remove('active');
+			});
 		}
 	}
 
@@ -122,10 +130,7 @@
 		});
 	}
 
-	window.addEventListener('load', function () {
-		document.body.classList.remove('is-preload');
-		onScroll();
-	});
+	window.addEventListener('load', onScroll);
 
 	window.addEventListener('scroll', onScroll, { passive: true });
 	window.addEventListener('resize', onScroll);
