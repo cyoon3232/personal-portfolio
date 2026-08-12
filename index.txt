@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Portfolio layout: Cara
+-->
+<html lang="en">
+	<head>
+		<title>Cara — Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/portfolio.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<div id="wrapper">
+
+			<!-- Hero: full-viewport intro (no nav tabs here) -->
+			<section id="hero" aria-label="Introduction">
+				<div class="hero-inner">
+					<span class="hero-logo"><img src="images/logo.svg" alt="Logo" /></span>
+					<h1>Hi, I'm Cara</h1>
+					<p class="hero-subtitle">
+						UBC student interested in data science and software development.
+					</p>
+				</div>
+				<a href="#skills" class="hero-scroll-hint scrolly" aria-label="Scroll to Skills section">
+					<span>Scroll</span>
+					<span class="hero-scroll-arrow" aria-hidden="true"></span>
+				</a>
+			</section>
+
+			<!-- Tabs appear once you scroll past the hero; scroll or click to move between sections -->
+			<nav id="nav" class="nav-hidden" aria-label="Page sections">
+				<ul>
+					<li><a href="#skills" class="active">Skills</a></li>
+					<li><a href="#projects">Projects</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+
+			<div id="main">
+
+				<!-- Skills -->
+				<section id="skills" class="main">
+					<header class="major">
+						<h2>About & Skills</h2>
+						<p>Languages and tools I work with, plus a rough history of how I grew them over time.</p>
+					</header>
+					<p>
+						This section is ready for your own story. Replace this paragraph with a short bio focused on
+						what you enjoy building and what you are learning next.
+					</p>
+
+					<h3>Stack</h3>
+					<ul class="skills-grid">
+						<li>
+							<span class="icon brands fa-java" aria-hidden="true"></span>
+							<h3>Java</h3>
+						</li>
+						<li>
+							<span class="icon brands fa-python" aria-hidden="true"></span>
+							<h3>Python</h3>
+						</li>
+						<li>
+							<span class="icon brands fa-html5" aria-hidden="true"></span>
+							<h3>HTML &amp; CSS</h3>
+						</li>
+					</ul>
+
+					<h3>Timeline</h3>
+					<!--
+						TIMELINE — Add a row: copy any <li>…</li> block below, paste it where you want in the list,
+						then edit the <h4> (dates/title) and <p> (description). Keep <span class="timeline-marker"> on each item.
+					-->
+					<ul class="timeline">
+						<li>
+							<span class="timeline-marker" aria-hidden="true"></span>
+							<h4>2024 — Present</h4>
+							<p>Deepening full-stack projects with Java and Python; polishing UI with HTML and CSS.</p>
+						</li>
+						<li>
+							<span class="timeline-marker" aria-hidden="true"></span>
+							<h4>2022 — 2024</h4>
+							<p>Coursework and personal projects; first shipped apps and collaborative code reviews.</p>
+						</li>
+						<li>
+							<span class="timeline-marker" aria-hidden="true"></span>
+							<h4>Before 2022</h4>
+							<p>Foundations in programming logic, version control, and curiosity-driven experiments.</p>
+						</li>
+					</ul>
+				</section>
+
+				<!-- Projects -->
+				<section id="projects" class="main special">
+					<header class="major">
+						<h2>Projects</h2>
+						<p>Placeholder cards using template images — swap titles, copy, thumbnails, and links when you are ready.</p>
+					</header>
+					<div class="project-grid">
+						<a class="project-card" href="#">
+							<span class="project-thumb"><img src="images/pic02.jpg" alt="" /></span>
+							<span class="project-body">
+								<h3>Weather Dashboard</h3>
+								<p>Live API data and responsive layout for at-a-glance forecasts.</p>
+							</span>
+						</a>
+						<a class="project-card" href="#">
+							<span class="project-thumb"><img src="images/pic03.jpg" alt="" /></span>
+							<span class="project-body">
+								<h3>Study Buddy App</h3>
+								<p>Timers, notes, and streak tracking to keep coursework on track.</p>
+							</span>
+						</a>
+						<a class="project-card" href="#">
+							<span class="project-thumb"><img src="images/pic04.jpg" alt="" /></span>
+							<span class="project-body">
+								<h3>Portfolio Site</h3>
+								<p>This very site — scroll-driven sections and a clean project grid.</p>
+							</span>
+						</a>
+						<a class="project-card" href="#">
+							<span class="project-thumb"><img src="images/pic05.jpg" alt="" /></span>
+							<span class="project-body">
+								<h3>Creative Lab</h3>
+								<p>Experiments with motion, color, and small interactive prototypes.</p>
+							</span>
+						</a>
+					</div>
+				</section>
+
+				<!-- Contact -->
+				<section id="contact" class="main special">
+					<header class="major">
+						<h2>Contact</h2>
+						<p>Reach out for collaborations, questions, or just to say hello.</p>
+					</header>
+					<div class="contact-block">
+						<p>
+							<strong>Email:</strong>
+							<a href="mailto:cara@example.com">cara@example.com</a>
+							<!-- Replace with your real address when you publish. -->
+						</p>
+						<ul class="actions">
+							<li>
+								<!--
+									Resume: add a PDF named resume.pdf next to index.html (project root),
+									or change the href to match your file name.
+								-->
+								<a href="resume.pdf" class="button primary icon solid fa-download" download>Download resume</a>
+							</li>
+						</ul>
+					</div>
+				</section>
+
+			</div>
+
+			<footer id="footer">
+				<p class="copyright">&copy; Cara. Design: <a href="https://html5up.net/stellar">Stellar</a> by HTML5 UP.</p>
+			</footer>
+
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -8,7 +8,9 @@
 
 	var	$window = $(window),
 		$body = $('body'),
-		$main = $('#main');
+		$main = $('#main'),
+		$hero = $('#hero'),
+		$nav = $('#nav');
 
 	// Breakpoints.
 		breakpoints({
@@ -27,12 +29,29 @@
 			}, 100);
 		});
 
-	// Nav.
-		var $nav = $('#nav');
+	// Hero: hide nav on the first screen; reveal after scrolling past most of the hero.
+		function updateHeroNav() {
+			if ($hero.length < 1 || $nav.length < 1)
+				return;
 
+			var heroH = $hero.outerHeight(),
+				st = $window.scrollTop(),
+				// Show tabs once user has scrolled ~55% down the hero (tweak 0.45–0.65 to taste)
+				pastHero = st > heroH * 0.55;
+
+			if (pastHero)
+				$nav.removeClass('nav-hidden');
+			else
+				$nav.addClass('nav-hidden');
+		}
+
+		$window.on('scroll resize load', updateHeroNav);
+		updateHeroNav();
+
+	// Nav.
 		if ($nav.length > 0) {
 
-			// Shrink effect.
+			// Shrink effect: fixed bar while browsing #main sections.
 				$main
 					.scrollex({
 						mode: 'top',
@@ -44,13 +63,15 @@
 						},
 					});
 
-			// Links.
+			// Links: offset ignores bar height while it is hidden on the hero.
 				var $nav_a = $nav.find('a');
 
 				$nav_a
 					.scrolly({
 						speed: 1000,
-						offset: function() { return $nav.height(); }
+						offset: function() {
+							return $nav.hasClass('nav-hidden') ? 0 : $nav.outerHeight();
+						}
 					})
 					.on('click', function() {
 
