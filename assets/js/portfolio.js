@@ -4,6 +4,7 @@
 	var hero = document.getElementById('hero');
 	var nav = document.getElementById('nav');
 	var main = document.getElementById('main');
+	var isProjectPage = document.body.classList.contains('page-project');
 	var navLinks = nav ? Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]')) : [];
 	var scrollDuration = 1000;
 	var scrollLockUntil = 0;
@@ -51,7 +52,12 @@
 	}
 
 	function updateHeroNav() {
-		if (!hero || !nav) {
+		if (!nav) {
+			return;
+		}
+
+		if (isProjectPage || !hero) {
+			nav.classList.remove('nav-hidden');
 			return;
 		}
 
