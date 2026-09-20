@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>Vancouver Crime Analytics — Cara</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="../assets/css/portfolio.css" />
+	</head>
+	<body class="page-project">
+		<div id="wrapper">
+
+			<nav id="nav" aria-label="Page sections">
+				<ul>
+					<li><a href="../index.html#about">About</a></li>
+					<li><a href="../index.html#projects" class="active">Projects</a></li>
+					<li><a href="../index.html#contact">Contact</a></li>
+				</ul>
+			</nav>
+
+			<div id="main">
+				<article class="main project-page">
+
+					<p class="project-back">
+						<a href="../index.html#projects">← Back to projects</a>
+					</p>
+
+					<header class="project-hero">
+						<p class="project-status">Ongoing project</p>
+						<h1>Vancouver Crime Analytics</h1>
+						<p class="project-tagline">
+							Exploring Vancouver open crime data to compare neighbourhoods, offence mix, and trends over time.
+						</p>
+
+						<ul class="project-tags" aria-label="Technologies">
+							<li>Python</li>
+							<li>pandas</li>
+							<li>Jupyter</li>
+							<li>matplotlib</li>
+						</ul>
+
+						<div class="project-hero-actions">
+							<ul class="actions">
+								<li>
+									<a
+										href="https://github.com/cyoon3232/data-projects/tree/main/vancouver-crime-analytics"
+										class="button primary"
+										target="_blank"
+										rel="noopener"
+									>
+										GitHub
+									</a>
+								</li>
+							</ul>
+						</div>
+					</header>
+
+					<section class="project-section" aria-labelledby="crime-overview">
+						<h2 id="crime-overview">Overview</h2>
+						<p>
+							Vancouver publishes open data on reported crime incidents across neighbourhoods and years.
+							I am building a Python analysis workflow to clean that dataset and summarize how incident
+							volumes and offence types vary across the city. The project is still in progress: core
+							cleaning and initial EDA exist, with more questions planned.
+						</p>
+					</section>
+
+					<section class="project-section" aria-labelledby="crime-did">
+						<h2 id="crime-did">What I Did</h2>
+						<ul class="project-list">
+							<li>Imported and cleaned the city’s neighbourhood-level crime CSV into an analysis-ready table.</li>
+							<li>Built Jupyter notebooks for data preparation and exploratory analysis.</li>
+							<li>Produced matplotlib charts for yearly totals, top neighbourhoods, and offence composition.</li>
+							<li>Started a follow-up view of crime-type percentages within each high-volume neighbourhood.</li>
+						</ul>
+					</section>
+
+					<section class="project-section" aria-labelledby="crime-results">
+						<h2 id="crime-results">Key Results &amp; Outputs</h2>
+						<ul class="project-list">
+							<li>Bar charts of reported incidents by year and the top ten neighbourhoods by volume.</li>
+							<li>Stacked composition charts for the busiest neighbourhoods (counts and percentage views).</li>
+							<li>
+								Early notebook notes: theft-related offences (including theft from vehicle and other theft)
+								are common across the top neighbourhoods; “Offence Against A Person” also appears among
+								the most frequent types in that group.
+							</li>
+						</ul>
+
+						<div class="project-visual-grid">
+							<figure class="project-visual">
+								<img
+									src="../images/projects/vancouver-crime/incidents_by_year.png"
+									alt="Bar chart of reported crime incidents by year in Vancouver"
+									width="800"
+									height="480"
+									loading="lazy"
+								/>
+								<figcaption>Reported incidents by year (from project EDA notebook).</figcaption>
+							</figure>
+							<figure class="project-visual">
+								<img
+									src="../images/projects/vancouver-crime/top_neighbourhoods.png"
+									alt="Bar chart of top ten Vancouver neighbourhoods by reported incidents"
+									width="800"
+									height="480"
+									loading="lazy"
+								/>
+								<figcaption>Top neighbourhoods by reported incident count.</figcaption>
+							</figure>
+							<figure class="project-visual project-visual--wide">
+								<img
+									src="../images/projects/vancouver-crime/top10_neighbourhood_crime_composition.png"
+									alt="Stacked horizontal bar chart of crime type composition in top neighbourhoods"
+									width="1200"
+									height="800"
+									loading="lazy"
+								/>
+								<figcaption>Offence composition for the ten highest-volume neighbourhoods.</figcaption>
+							</figure>
+						</div>
+					</section>
+
+					<section class="project-section" aria-labelledby="crime-approach">
+						<h2 id="crime-approach">Technical Approach</h2>
+						<p>
+							Raw open data is stored under <code>data/raw</code>, cleaned to
+							<code>data/processed/vancouver_crime_clean.csv</code>, and analyzed in Jupyter with pandas
+							groupbys and matplotlib. Figures are exported to <code>results/figures/</code> so notebooks
+							stay readable and outputs can be reused in write-ups like this page.
+						</p>
+						<!-- TODO: Summarize specific cleaning steps (columns dropped, date parsing, neighbourhood standardization) once documented in the build notebook. -->
+					</section>
+
+					<section class="project-section" aria-labelledby="crime-learned">
+						<h2 id="crime-learned">Challenge / What I Learned</h2>
+						<p>
+							Categorical fields such as neighbourhood and offence type need consistent levels before
+							aggregation; otherwise charts look plausible but combine incompatible labels. Building the
+							clean dataset first made the EDA notebooks much easier to extend.
+						</p>
+						<!-- TODO: Add a concrete example of a data-quality issue you fixed during cleaning. -->
+					</section>
+
+					<section class="project-links" aria-labelledby="crime-links">
+						<h2 id="crime-links">Project Links</h2>
+						<ul class="actions">
+							<li>
+								<a
+									href="https://github.com/cyoon3232/data-projects/tree/main/vancouver-crime-analytics"
+									class="button primary"
+									target="_blank"
+									rel="noopener"
+								>
+									GitHub
+								</a>
+							</li>
+						</ul>
+					</section>
+
+				</article>
+			</div>
+
+			<footer id="footer">
+				<p class="copyright">
+					&copy; Cara.
+					Layout inspired by
+					<a href="https://html5up.net/stellar">Stellar</a>
+					by HTML5 UP.
+				</p>
+			</footer>
+
+		</div>
+
+		<script src="../assets/js/portfolio.js"></script>
+	</body>
+</html>

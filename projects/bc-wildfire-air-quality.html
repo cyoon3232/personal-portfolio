@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>BC Wildfire &amp; Air Quality Analytics — Cara</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="../assets/css/portfolio.css" />
+	</head>
+	<body class="page-project">
+		<div id="wrapper">
+
+			<nav id="nav" aria-label="Page sections">
+				<ul>
+					<li><a href="../index.html#about">About</a></li>
+					<li><a href="../index.html#projects" class="active">Projects</a></li>
+					<li><a href="../index.html#contact">Contact</a></li>
+				</ul>
+			</nav>
+
+			<div id="main">
+				<article class="main project-page">
+
+					<p class="project-back">
+						<a href="../index.html#projects">← Back to projects</a>
+					</p>
+
+					<header class="project-hero">
+						<h1>BC Wildfire &amp; Air Quality Analytics</h1>
+						<p class="project-tagline">
+							Relating large wildfire activity to daily PM2.5 across British Columbia (2022–2024).
+						</p>
+
+						<ul class="project-tags" aria-label="Technologies">
+							<li>R</li>
+							<li>Quarto</li>
+							<li>tidyverse</li>
+							<li>tidymodels</li>
+						</ul>
+
+						<div class="project-hero-actions">
+							<ul class="actions">
+								<li>
+									<a
+										href="https://cyoon3232.github.io/data-projects/"
+										class="button primary"
+										target="_blank"
+										rel="noopener"
+									>
+										View Full Analysis
+									</a>
+								</li>
+								<li>
+									<a
+										href="https://github.com/cyoon3232/data-projects/tree/main/bc-wildfire-analytics"
+										class="button"
+										target="_blank"
+										rel="noopener"
+									>
+										GitHub
+									</a>
+								</li>
+							</ul>
+						</div>
+					</header>
+
+					<section class="project-section" aria-labelledby="wildfire-overview">
+						<h2 id="wildfire-overview">Overview</h2>
+						<p>
+							Around Summer, the sun starts looking very red and the horizon becomes translucent. 
+							It is smoke! But now, are these itty-bitty air pollutants all from wildfires? 
+							Which wildfire could it possibly be from? Can we predict when the smokes are going to cover 
+							our neighbourhood by looking at recent fire activity near? I have built an analysis pipeline 
+							to join hourly air-quality monitoring data with large-fire records and ask 
+							whether recent fire activity near a station aligns with higher daily pollution.
+						</p>
+						<p>
+							The work is published as a Quarto website with exploratory analysis, supervised models,
+							clustering, and a short learning module on data-auditing mistakes encountered along the way.
+						</p>
+					</section>
+
+					<section class="project-section" aria-labelledby="wildfire-did">
+						<h2 id="wildfire-did">What I Did</h2>
+						<ul class="project-list">
+							<li>Audited and explored NAPS hourly PM2.5 data and CNFD large-fire records.</li>
+							<li>Aggregated valid daily PM2.5 per station and engineered spatial–temporal wildfire exposure features.</li>
+							<li>Ran EDA on year-to-year PM2.5 patterns and fire proximity associations.</li>
+							<li>Built KNN classification, KNN/linear regression, and K-means clustering workflows with tidymodels.</li>
+							<li>Documented the full pipeline in Quarto and added an educational module from analysis mistakes.</li>
+						</ul>
+					</section>
+
+					<section class="project-section" aria-labelledby="wildfire-results">
+						<h2 id="wildfire-results">Key Results</h2>
+						<ul class="project-list">
+							<li>Stations with more recent nearby large fires tended to show higher daily PM2.5 in exploratory analysis.</li>
+							<li>Wildfire proximity features carried signal, but predictive models had limited performance for forecasting daily PM2.5.</li>
+							<li>Clustering highlighted distinct combinations of exposure and pollution conditions across station-days.</li>
+						</ul>
+
+						<figure class="project-visual">
+							<img
+								src="../images/projects/wildfire/knn_k_tuning.png"
+								alt="KNN regression tuning plot for PM2.5 prediction"
+								width="800"
+								height="480"
+								loading="lazy"
+							/>
+							<figcaption>Example model k-tuning output from the regression chapter (full charts and discussion on the Quarto site).</figcaption>
+						</figure>
+					</section>
+
+					<section class="project-section" aria-labelledby="wildfire-approach">
+						<h2 id="wildfire-approach">Technical Approach</h2>
+						<p>
+							Hourly PM2.5 from NAPS were grouped and summarized to provide daily station means when enough 
+							hours were observed. Wildfire records were cleaned and linked geographically, then summarized 
+							into recent-fire exposure features for each station-day. Quarto organized reproducible chapters 
+							from raw auditing through modeling. tidymodels handled resampling and tuning so comparisons between
+							KNN and linear regression were consistent.
+						</p>
+					</section>
+
+					<section class="project-section" aria-labelledby="wildfire-learned">
+						<h2 id="wildfire-learned">Challenge</h2>
+						<p>
+							Joining two messy real-world sources meant small date and geography mistakes could easily 
+							distort exposure features. Auditing early—and turning those failures into the learning
+							module—made the later modeling more trustworthy even when prediction remained difficult.
+						</p>
+					</section>
+
+					<section class="project-section" aria-labelledby="wildfire-limitations">
+						<h2 id="wildfire-learned">Limitations</h2>
+						<p>
+							Since the data was missing wind direction, intensity, and other factors that could contribute 
+							to the exposure of PM2.5 and the movement of smoke, the predictions were unreliable.
+						</p>
+					</section>
+
+					<section class="project-links" aria-labelledby="wildfire-links">
+						<h2 id="wildfire-links">Project Links</h2>
+						<ul class="actions">
+							<li>
+								<a
+									href="https://cyoon3232.github.io/data-projects/"
+									class="button primary"
+									target="_blank"
+									rel="noopener"
+								>
+									View Full Analysis
+								</a>
+							</li>
+							<li>
+								<a
+									href="https://github.com/cyoon3232/data-projects/tree/main/bc-wildfire-analytics"
+									class="button"
+									target="_blank"
+									rel="noopener"
+								>
+									GitHub
+								</a>
+							</li>
+						</ul>
+					</section>
+
+				</article>
+			</div>
+
+			<footer id="footer">
+				<p class="copyright">
+					&copy; Cara.
+					Layout inspired by
+					<a href="https://html5up.net/stellar">Stellar</a>
+					by HTML5 UP.
+				</p>
+			</footer>
+
+		</div>
+
+		<script src="../assets/js/portfolio.js"></script>
+	</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>HumScore — Cara</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="../assets/css/portfolio.css" />
+	</head>
+	<body class="page-project">
+		<div id="wrapper">
+
+			<nav id="nav" aria-label="Page sections">
+				<ul>
+					<li><a href="../index.html#about">About</a></li>
+					<li><a href="../index.html#projects" class="active">Projects</a></li>
+					<li><a href="../index.html#contact">Contact</a></li>
+				</ul>
+			</nav>
+
+			<div id="main">
+				<article class="main project-page">
+
+					<p class="project-back">
+						<a href="../index.html#projects">← Back to projects</a>
+					</p>
+
+					<header class="project-hero">
+						<h1>HumScore</h1>
+						<p class="project-tagline">
+							A browser app that listens to humming, detects pitch, and maps it onto an editable piano-roll score.
+						</p>
+
+						<ul class="project-tags" aria-label="Technologies">
+							<li>React</li>
+							<li>TypeScript</li>
+							<li>Web Audio</li>
+							<li>Vite</li>
+							<li>pitchy</li>
+						</ul>
+
+						<div class="project-hero-actions">
+							<ul class="actions">
+								<li>
+									<a
+										href="https://github.com/cyoon3232/humscore"
+										class="button primary"
+										target="_blank"
+										rel="noopener"
+									>
+										GitHub
+									</a>
+								</li>
+							</ul>
+						</div>
+					</header>
+
+					<figure class="project-visual">
+						<img
+							src="../images/projects/humscore/humscore-hero.png"
+							alt="HumScore at first"
+							width="800"
+							height="450"
+							loading="lazy"
+						/>
+						<figcaption>View (80% screen size).</figcaption>
+					</figure>
+
+					<section class="project-section" aria-labelledby="humscore-overview">
+						<h2 id="humscore-overview">Overview</h2>
+						<p>
+							While humming, I wondered if I could turn my humming into musical scores. Although I have not reached the scores part, 
+							HumScore features turning microphone input into musical notations, displaying them on a piano-roll common in midi apps. 
+							The recording can be played with or without original humming, and the process can be repeated. The current app focuses 
+							on monophonic humming: live pitch feedback, optional user calibration, recording, and a piano-roll timeline with rhythm 
+							controls (note: rhythm controls are yet to be completed).
+						</p>
+					</section>
+
+					<section class="project-section" aria-labelledby="humscore-did">
+						<h2 id="humscore-did">What I Did</h2>
+						<ul class="project-list">
+							<li>Built the React/TypeScript UI and wired microphone capture through the Web Audio API.</li>
+							<li>Integrated pitch detection (pitchy) with clarity/volume gates for live and recorded frames.</li>
+							<li>Implemented calibration capture, user note confirmation, and cent-offset correction.</li>
+							<li>Grouped pitch frames into note blocks with strong vs. uncertain confidence for the piano roll.</li>
+							<li>Added synthesized playback and tempo/bar rhythm settings.</li>
+							<li>Wrote unit tests around calibration, pitch processing, quantization, and note utilities.</li>
+						</ul>
+					</section>
+
+					<section class="project-section" aria-labelledby="humscore-features">
+						<h2 id="humscore-features">Current Capabilities</h2>
+						<ul class="project-list">
+							<li><strong>Input:</strong> Browser microphone via <code>getUserMedia</code> analyser FFT size 2048.</li>
+							<li><strong>Live view:</strong> Shows corrected note name, raw note, frequency, cents, and clarity while listening.</li>
+							<li><strong>Calibration:</strong> Up to three saved reference notes; user picks intended pitch from given possible choices.</li>
+							<li><strong>Recording:</strong> Collects timestamped pitch frames and a WebM audio take; frames become note blocks on stop.</li>
+							<li><strong>Representation:</strong> Notes stored as MIDI/note labels with start, end, duration, and confidence on a piano-roll timeline.</li>
+							<li><strong>Playback:</strong> Replay generated tones alone, with the voice recording, or click individual blocks to hear each.</li>
+							<li><strong>Rhythm:</strong> Change tempo and beats per bar before playback.</li>
+						</ul>
+						<figure class="project-visual">
+							<img
+								src="../images/projects/humscore/humscore-hero.png"
+								alt="HumScore application interface showing microphone controls and piano roll"
+								width="800"
+								height="450"
+								loading="lazy"
+							/>
+							<figcaption>Piano roll, "Listening" mode with "mic on", showing notes on the left-hand side.</figcaption>
+						</figure>
+					</section>
+
+					<section class="project-section" aria-labelledby="humscore-approach">
+						<h2 id="humscore-approach">Technical Approach</h2>
+						<p>
+							An <code>AudioContext</code> analyser feeds float time-domain samples to pitchy each animation frame.
+							Reliable frames during recording become <code>PitchFrame</code> samples; calibration applies stored
+							cent offsets before note naming. <code>processPitchFrames</code> merges consecutive frames on the
+							same pitch into <code>NoteBlock</code> segments, labeling short or noisy groups as uncertain.
+							Playback schedules simple synthesized notes via a separate audio context, optionally aligned to
+							quantized grid positions from tempo and steps-per-beat settings.
+						</p>
+					</section>
+
+					<section class="project-section" aria-labelledby="humscore-learned">
+						<h2 id="humscore-learned">Challenge / What I Learned</h2>
+						<p>
+							Humming is messier than instrument audio: clarity and volume thresholds matter as much as the
+							pitch algorithm. Separating calibration thresholds from recording thresholds, surfacing debug
+							counts during calibration, and marking uncertain blocks made the piano roll honest about what
+							the detector actually heard.
+						</p>
+					</section>
+
+					<section class="project-links" aria-labelledby="humscore-links">
+						<h2 id="humscore-links">Project Links</h2>
+						<ul class="actions">
+							<li>
+								<a
+									href="https://github.com/cyoon3232/humscore"
+									class="button primary"
+									target="_blank"
+									rel="noopener"
+								>
+									GitHub
+								</a>
+							</li>
+						</ul>
+						<!-- TODO: Possibly add a live demo. -->
+					</section>
+
+				</article>
+			</div>
+
+			<footer id="footer">
+				<p class="copyright">
+					&copy; Cara.
+					Layout inspired by
+					<a href="https://html5up.net/stellar">Stellar</a>
+					by HTML5 UP.
+				</p>
+			</footer>
+
+		</div>
+
+		<script src="../assets/js/portfolio.js"></script>
+	</body>
+</html>
